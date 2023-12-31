@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   function APILogin(email, password) {
-    return fetch('http://localhost:5000/login', {
+    return fetch('https://bibliobackendserver.azurewebsites.net/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ const Login = () => {
   }
 
   function APIRecommendations(uuid){
-    const url = `http://localhost:5000/recommendations/${uuid}`;
+    const url = `https://bibliobackendserver.azurewebsites.net/books/recommendations/${uuid}`;
     return fetch(url , {
       method: 'GET',
       headers: {
