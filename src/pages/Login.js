@@ -27,6 +27,7 @@ const Login = () => {
     event.preventDefault();
     try {
       const basicDetails = await APILogin(email, password);
+      console.log(basicDetails);
       const uuid = basicDetails.uuid;
       const recommendations = await APIRecommendations(uuid);
       const userDetails = UserDetails.loginFromJSON(basicDetails);
@@ -65,7 +66,7 @@ const Login = () => {
       if (data.status === 'success') {
         setIsAuthenticated(true);
         localStorage.setItem('token', data.token);
-        return data.user;
+        return data.data;
       } else if (data.status === 'failure') {
       } else {
       }
