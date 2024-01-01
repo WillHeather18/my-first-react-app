@@ -107,25 +107,4 @@ function Dashboard() {
     </div>
 }
 
-function APIRecommendations(uuid){
-    const url = `https://bibliobackendserver.azurewebsites.net/books/getrecommendations/${uuid}`;
-    return fetch(url , {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data.status === 'success') {
-        return data.recommendations;
-      }
-    }).catch(error => {
-  })};
-
 export default Dashboard;
