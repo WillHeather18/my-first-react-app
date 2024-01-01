@@ -69,6 +69,10 @@ button {
   margin-top: 10vh;
 }
 
+.signup-page{
+  margin-top: 10vh;
+}
+
 @keyframes fadeIn {
   from {
       opacity: 0;

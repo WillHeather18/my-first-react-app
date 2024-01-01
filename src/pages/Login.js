@@ -76,7 +76,7 @@ const Login = () => {
   }
 
   function APIRecommendations(uuid){
-    const url = `https://bibliobackendserver.azurewebsites.net/books/recommendations/${uuid}`;
+    const url = `https://bibliobackendserver.azurewebsites.net/books/getrecommendations/${uuid}`;
     return fetch(url , {
       method: 'GET',
       headers: {
