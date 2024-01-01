@@ -17,7 +17,6 @@ function Dashboard() {
     const booksPerPage = 10;
     const [inputValue, setInputValue] = useState('');
 
-    console.log(userDetails.currentRecommendations)
     useEffect(() => {
         const fetchPromises = userDetails.currentRecommendations.map(isbn => {
             const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${APIKEY}`;
@@ -64,7 +63,7 @@ function Dashboard() {
             <div className="dashboard-books">
                 {selectedTab === 'Upcoming Books' && books.map((book, index) => (
                     <div key={index} className="book-container">
-                        <img src={book.volumeInfo.imageLinks.smallThumbnail} alt="Book Cover" className="book-cover"/>
+                        <img src={book.volumeInfo.imageLinks?.smallThumbnail || 'default-image.jpg'} alt="Book Cover" className="book-cover"/>
                             <div className="book-details">
                                 <p className="book-title">{book.volumeInfo.title}</p>
                                 <p className="book-info">{book.volumeInfo.authors} ({book.volumeInfo.publishedDate})</p>
@@ -107,5 +106,26 @@ function Dashboard() {
         </div>
     </div>
 }
+
+function APIRecommendations(uuid){
+    const url = `https://bibliobackendserver.azurewebsites.net/books/getrecommendations/${uuid}`;
+    return fetch(url , {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === 'success') {
+        return data.recommendations;
+      }
+    }).catch(error => {
+  })};
 
 export default Dashboard;
