@@ -63,20 +63,18 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <AppBar transparent={false} />
-      <div className='signup-page'>
-        <h1>Signup</h1>
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="email" placeholder="Email" onChange={handleInputChange} />
-          <input type="password" name="password" placeholder="Password" onChange={handleInputChange} />
-          <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleInputChange} />
-          <button type="submit">Signup</button>
-        </form>
-        <p>{signupStatus}</p>
-      </div>
+  <div>
+    <AppBar transparent={false} />
+    <div className='signup-page'>
+      <h1>Signup</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="email" placeholder="Email" onChange={handleInputChange} />
+        <input type="password" name="password" placeholder="Password" onChange={handleInputChange} />
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleInputChange} />
+        <button type="submit">Signup</button>
+      </form>
+      <p>Already have an account? <Link to="/login">Log in</Link></p>
     </div>
-  );
-};
-
+  </div>
+);}
 export default Signup;
