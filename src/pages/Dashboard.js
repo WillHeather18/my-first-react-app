@@ -1,5 +1,6 @@
 import React from "react";
 import AppBar from "../Components/AppBar";
+import StarRating from "../Components/StarRating";
 import "../styles/Dashboard.css";
 import { UserContext } from '../context/UserContext';
 import { useContext, useEffect, useState } from 'react';
@@ -16,6 +17,13 @@ function Dashboard() {
     const [page, setPage] = useState(1);
     const booksPerPage = 10;
     const [inputValue, setInputValue] = useState('');
+    const [reviewBook, setReviewBook] = useState('');
+    const [selectedRating, setSelectedRating] = useState(0);
+
+  const handleRatingChange = (newRating) => {
+    setSelectedRating(newRating);
+    console.log("Selected Rating: ", newRating); // You can remove this line later
+  };
 
     useEffect(() => {
         const fetchPromises = userDetails.currentRecommendations.map(isbn => {
@@ -43,6 +51,7 @@ function Dashboard() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.items) {
+                        console.log(data.items);
                         setCatalogueBooks(data.items);
                     } else {
                         setCatalogueBooks([]);
@@ -98,9 +107,16 @@ function Dashboard() {
                                     <p className="catalogue-book-title">{book.volumeInfo.title}</p>
                                     <p className="catalogue-book-info">{book.volumeInfo.authors} ({book.volumeInfo.publishedDate})</p>
                                 </div>
+                                <button className="catalogue-book-button" onClick={() => {setSelectedTab("Review Book"); setReviewBook(book);}}>I have read this book</button>
                             </div>
                     ))}
                     </div>
+                </div>
+            )}
+            {selectedTab === 'Review Book' && ( 
+                <div className="review-book-container">
+                    <p>{reviewBook.volumeInfo.title}</p>
+                    <StarRating onRatingChange={handleRatingChange} />
                 </div>
             )}
             </div>

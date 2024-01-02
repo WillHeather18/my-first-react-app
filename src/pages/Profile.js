@@ -7,11 +7,12 @@ import AppBar from "../Components/AppBar";
 
 const Profile = () => {
   const { setIsAuthenticated } = useContext(AuthContext);
-  const { userDetails } = useContext(UserContext);
+  const { userDetails, setUserDetails } = useContext(UserContext);
   const [selectedTab, setSelectedTab] = useState('Account Information');
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    setUserDetails({});
     setIsAuthenticated(false);
   }
 

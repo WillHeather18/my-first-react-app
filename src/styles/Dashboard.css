@@ -120,3 +120,17 @@
     text-align: left;
     justify-content: flex-start;
 }
+
+.star-rating {
+    display: inline-block;
+    font-size: 2em; /* Size of the stars */
+    color: #ffd700; /* Color of the stars */
+}
+
+.star-rating .star {
+    cursor: pointer; /* Changes cursor to pointer when hovering over a star */
+}
+
+.star-rating .star:hover {
+    color: #ffcc00; /* Color of stars on hover */
+}

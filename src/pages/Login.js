@@ -4,6 +4,7 @@ import { AuthContext } from '../context/Authcontext'; // Import the AuthContext
 import { UserContext } from '../context/UserContext';
 import UserDetails from '../userDetails';
 import AppBar from "../Components/AppBar";
+import "../styles/Login.css";
 
 
 const Login = () => {
@@ -39,10 +40,6 @@ const Login = () => {
     catch (error) {
       console.error('Error:', error);
     }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
   };
 
   function APILogin(email, password) {
@@ -107,7 +104,6 @@ const Login = () => {
         <input type="password" name="password" onChange={handleInputChange} />
         <button type="submit">Login</button>
       </form>
-      <button onClick={handleLogout}>Logout</button>
       <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
     </div>
     </div>
