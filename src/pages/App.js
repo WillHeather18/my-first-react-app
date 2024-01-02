@@ -23,9 +23,8 @@ function App() {
             <Route path="/ourboxes" element={<MainContainer><Ourboxes /></MainContainer>} />
             <Route path="/login" element={<MainContainer><Login /></MainContainer>} />
             <Route path="/signup" element={<MainContainer><Signup /></MainContainer>} />
-            <Route path="/profilet" element={<MainContainer><Profile /></MainContainer>} />
             <Route path="/profile" element={<MainContainer><ProtectedRoute component={Profile} redirectTo='/profile' /></MainContainer>} />
-            <Route path="/dashboard" element={<MainContainer><ProtectedRoute component={Dashboard} /></MainContainer>} />     
+            <Route path="/dashboard" element={<MainContainer><ProtectedRoute component={Dashboard} redirectTo='/profile' /></MainContainer>} />     
           </Routes>
         </div>
       </Router>

@@ -59,6 +59,7 @@ function Dashboard() {
                 <button className="menu-button" onClick={() => setSelectedTab('Upcoming Books')}>Upcoming Books</button>
                 <button className="menu-button" onClick={() => setSelectedTab('Book History')}>Book History</button>
                 <button className="menu-button" onClick={() => setSelectedTab('Catalogue')}>Catalogue</button>
+                <button className="menu-button" onClick={() => setSelectedTab('Your Book Reviews')}>Your Book Reviews</button>
             </div>
             <div className="dashboard-books">
                 {selectedTab === 'Upcoming Books' && books.map((book, index) => (
