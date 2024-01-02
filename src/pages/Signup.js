@@ -7,7 +7,6 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [signupStatus, setSignupStatus] = useState('');
   const navigate = useNavigate();
 
 
@@ -50,15 +49,14 @@ const Signup = () => {
     .then(response => response.json())
     .then(data => {
       if (data.status === 'success') {
-        setSignupStatus('Signup Successful');
         alert("Signup Successful");
         navigate('/login');
       } else if (data.status === 'failure') {
-        setSignupStatus(data.message);
+        alert("Signup Failed");
       }
     })
     .catch((error) => {
-      setSignupStatus('Signup Failed');
+      console.error('Error:', error);
     });
   };
 
