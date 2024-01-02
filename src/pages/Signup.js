@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link ,useNavigate } from 'react-router-dom';
 import AppBar from "../Components/AppBar";
+import "../styles/Signup.css"
 
 const Signup = () => {
   const [email, setEmail] = useState('');

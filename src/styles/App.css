@@ -20,7 +20,7 @@
 }
 
 .app-bar-transparent {
-  background-color: transparent; /* semi-transparent white */
+  background-color: transparent; 
   box-shadow: none;
 }
 
@@ -38,8 +38,8 @@
 
 .nav-links button {
   color: black;
-  background-color: transparent; /* makes the button background transparent */
-  border: none; /* removes the border */
+  background-color: transparent;
+  border: none;
 }
 
 .title{
@@ -47,9 +47,21 @@
 }
 
 .profile-icon svg {
-  width: 7vh;
-  height: 7vw;
+  width: 3vw;
+  height: 3vw;
   margin-right: 5vh;
+  cursor: pointer;
+}
+
+.login-button {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  margin-right: 3vw;
+  width: 5vw;
 }
 
 a {

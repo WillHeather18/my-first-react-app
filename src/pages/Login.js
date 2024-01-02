@@ -100,8 +100,8 @@ const Login = () => {
       <div className="login-page">
       <h1>Login</h1>
       <form onSubmit={handleFormSubmit}>
-        <input type="email" name="email" onChange={handleInputChange} />
-        <input type="password" name="password" onChange={handleInputChange} />
+        <input type="email" name="email" placeholder="Enter your email" onChange={handleInputChange} />
+        <input type="password" name="password" placeholder="Enter your password" onChange={handleInputChange} />
         <button type="submit">Login</button>
       </form>
       <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>

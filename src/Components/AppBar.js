@@ -1,10 +1,12 @@
-import React from 'react';
-import { ReactComponent as BibIcon } from '../assets/Bib.svg';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/Authcontext';
+import { ProfileCircle } from './ProfileCircle';
 import { Link } from 'react-router-dom';
 
 function AppBar({ transparent }) {
     const appBarClass = transparent ? 'app-bar-transparent' : '';
-    const token = localStorage.getItem('token');
+    const { isAuthenticated } = useContext(AuthContext);
+    const strokeColor = transparent ? '#f5f5f5' : '#292D32';
 
     return (
             <nav className={`app-bar ${appBarClass}`}>
@@ -13,7 +15,7 @@ function AppBar({ transparent }) {
               <h1 className="title">Bibliobox</h1>
               </Link>
               <div className="nav-links">
-                  {token && (
+                  {isAuthenticated && (
                         <button className='dashboard-button'>
                             <Link to="/dashboard">Your Plan</Link>
                         </button>
@@ -27,9 +29,17 @@ function AppBar({ transparent }) {
                 </div>
               </div>
               <div className="profile-icon">
-                <Link to="/profile">
-                  <BibIcon />
-                </Link>
+                {isAuthenticated ? (
+                  <Link to="/profile">
+                    <ProfileCircle strokeColor={strokeColor} />
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <button className='login-button'>
+                      Login
+                    </button>
+                  </Link>
+                )}
               </div>
             </nav>
     );
