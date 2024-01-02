@@ -117,6 +117,7 @@ function Dashboard() {
                 <div className="review-book-container">
                     <p>{reviewBook.volumeInfo.title}</p>
                     <StarRating onRatingChange={handleRatingChange} />
+                    <p>{selectedRating}</p>
                 </div>
             )}
             </div>
