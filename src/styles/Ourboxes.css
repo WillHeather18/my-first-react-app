@@ -3,4 +3,48 @@
     padding-top: 2vh;
     font-family: 'Lora', serif;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: row;
+    transition: transform 1s ease-in-out;
+    width: 50%; /* Fits one slide at a time */
+}
+
+
+
+.ourboxes-box {
+    flex: 0 0 100%; /* Each box takes full width of the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ourboxes-box img{
+    aspect-ratio: 1/1;
+    height: 50vh;
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 2vh;
+}
+
+
+.ourboxes-arrows{
+    display: flex;
+    gap: 1vw;
+    margin-bottom: 5vh;
+}
+
+.ourboxes-arrows button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #000;
 }
