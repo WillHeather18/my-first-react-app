@@ -21,7 +21,6 @@ const Profile = () => {
     <AppBar transparent={false} />
     <div className="profile-page">
     <div className="profile-container">
-    <h1>Account Settings</h1>
       <div className="menu-container">
         <button className="menu-button" onClick={() => setSelectedTab('Account Information')}>Account Information</button>
         <button className="menu-button" onClick={() => setSelectedTab('Subscription details')}>Subscription details</button>

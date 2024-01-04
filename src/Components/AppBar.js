@@ -13,17 +13,22 @@ function AppBar({ transparent }) {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
-      console.log("clicked")
-        setSidebarOpen(!isSidebarOpen);
-        console.log(isSidebarOpen)
-    };
+      setSidebarOpen(!isSidebarOpen);
+      if (!isSidebarOpen) {
+          document.body.classList.add('no-scroll');
+      } else {
+          document.body.classList.remove('no-scroll');
+      }
+  };
 
     return (
             <nav className={`app-bar ${appBarClass}`}>
               <HamburgerMenu strokeColor={strokeColor} onClick={toggleSidebar} />
               <div className="left-items">
               <Link to="/">
-              <h1 className="title">Bibliobox</h1>
+              <div className='title-container'>
+                <h1 className="title">Bibliobox</h1>
+              </div>
               </Link>
               <div className="nav-links">
                   {isAuthenticated && (

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ProfileCircle } from './ProfileCircle';
 import { AuthContext } from '../context/Authcontext';
 
 function Sidebar({ isSidebarOpen, toggleSidebar, strokeColor }) {
@@ -11,6 +10,11 @@ function Sidebar({ isSidebarOpen, toggleSidebar, strokeColor }) {
             {isSidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
             <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
                 <div className="sidebar-links">
+                    {isAuthenticated && (
+                            <button className='dashboard-button'>
+                                <Link to="/dashboard">Your Plan</Link>
+                            </button>
+                    )}
                     <button>
                         <Link to="/ourboxes">Our Boxes</Link>
                     </button>
@@ -21,7 +25,9 @@ function Sidebar({ isSidebarOpen, toggleSidebar, strokeColor }) {
                 <div className="sidebar-footer">
                     {isAuthenticated ? (
                         <Link to="/profile">
-                            <ProfileCircle strokeColor='#f5f5f5' />
+                            <button className='profile-button-sidebar'>
+                                Profile
+                            </button>
                         </Link>
                     ) : (
                         <Link to="/login">

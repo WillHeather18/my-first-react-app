@@ -6,7 +6,7 @@
   padding: 2%; /* Use percentage for padding */
   border-radius: 10px;
   background-color: white;
-  width: 70%; /* Use percentage for width */
+  width: 80%; /* Use percentage for width */
   margin: auto; 
   margin-top: 5vh;
   box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
@@ -66,7 +66,22 @@
   }
   
   .logout-button {
-    /* Add your styles for the logout button here */
+    background-color: #FF0000; /* Green background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s; /* Smooth transition for hover effect */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .logout-button:hover {
+    background-color: #CC0000; /* Darker shade of green on hover */
   }
   
   .profile-content {
@@ -97,15 +112,4 @@
   .tab-title {
     position: absolute;
   top: 1vh;
-  }
-
-  @media (max-width: 768px) {
-    .larger-container {
-      flex-direction: column;
-      width: 90%;
-    }
-  
-    .menu-container {
-      margin-right: 0;
-    }
   }
