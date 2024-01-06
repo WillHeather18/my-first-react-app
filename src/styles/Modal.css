@@ -35,4 +35,30 @@
     font-size: 1.5rem;
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 768px) {
+    .modal-overlay {
+        top: 10vh; /* Adjust top position for mobile */
+        height: 95%; /* Increase height to give more space */
+    }
+
+    .modal-content {
+        width: 90%; /* Increase width for better utilization of screen space */
+        height: auto; /* Make height auto to fit content */
+        padding: 15px; /* Adjust padding */
+        border-radius: 10px; /* Increase border radius for a softer look */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); /* Enhance shadow for depth */
+        overflow-y: auto; /* Allow scrolling if content is too long */
+        max-height: 90%; /* Maximum height to ensure it doesn't go off-screen */
+    }
+
+    .modal-close-button {
+        top: 5px; /* Adjust position */
+        right: 5px;
+        font-size: 2rem; /* Increase size for better touch interaction */
+    }
+
+    /* Add any additional mobile-specific styles here */
+}
+
   

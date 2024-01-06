@@ -25,7 +25,9 @@ function OurBoxes() {
     if (current < boxes.length - 1) {
       setCurrent(current + 1);
       setSelectedBox(boxes[current + 1]);
-      setSlide(slide - 120); // Move to the next slide
+      // Move to the next slide
+      // If the viewport width is less than or equal to 768px, move the slide by 100, else move it by 120
+      setSlide(window.innerWidth <= 768 ? slide - 118 : slide - 120);
     }
   };
   
@@ -33,7 +35,9 @@ function OurBoxes() {
     if (current > 0) {
       setCurrent(current - 1);
       setSelectedBox(boxes[current - 1]);
-      setSlide(slide + 120); // Move to the previous slide
+      // Move to the previous slide
+      // If the viewport width is less than or equal to 768px, move the slide by 100, else move it by 120
+      setSlide(window.innerWidth <= 768 ? slide + 118 : slide + 120);
     }
   };
 

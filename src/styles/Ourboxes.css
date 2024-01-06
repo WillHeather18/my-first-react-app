@@ -1,4 +1,5 @@
 .ourboxes-page{
+    height: 100vh;
     margin-top: 10vh;
     padding-top: 2vh;
     font-family: 'Lora', serif;
@@ -112,3 +113,63 @@
   .popular-books {
     font-weight: bold;
   }
+
+  @media only screen and (max-width: 768px) {
+    .ourboxes-page {
+        margin-top: 10vh;
+        padding-top: 1vh;
+    }
+
+    .carousel-container {
+        width: 80%; /* Increase width for mobile screens */
+        gap: 10%; /* Reduce gap */
+    }
+
+    .ourboxes-box {
+        border-radius: 15px; /* Slightly reduce border radius */
+        padding: 10px; /* Add padding inside each box */
+    }
+
+    .ourboxes-box img {
+        height: 30vh; /* Reduce image height */
+        margin-bottom: 1vh;
+    }
+
+    .ourboxes-arrows {
+        margin-bottom: 3vh;
+    }
+
+    .ourboxes-arrows button {
+        font-size: 1.5rem; /* Reduce the size of arrows */
+    }
+
+    .modal-description {
+        width: 90%; /* Increase width for better readability */
+        font-size: 1rem; /* Increase font size for readability */
+    }
+
+    .add-to-cart-button {
+        padding: 10px 20px; /* Adjust padding */
+        font-size: 1.2rem; /* Increase font size */
+        margin-top: 15px; /* Adjust margin */
+    }
+
+    .add-to-cart-button img {
+        height: 15px; /* Adjust image size inside the button */
+    }
+
+    .modal-books {
+        flex-direction: row; /* Stack images vertically */
+        gap: 1vw;
+    }
+
+    .modal-book img {
+        width: 15vw; /* Adjust image width */
+        height: auto; /* Adjust height accordingly */
+        margin-bottom: 1vh; /* Add margin between images */
+    }
+
+    .popular-books {
+        font-size: 1.2rem; /* Increase font size */
+    }
+}
