@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home'; import AboutUs from './Aboutus'; import HowItWorks from './Howitworks'; import Ourboxes from './Ourboxes'; import Login from './Login'; import Signup from './Signup'; import ProtectedRoute from './ProtectedRoute'; import Profile from './Profile'; import RootProvider from '../context/RootProvider'; import Dashboard from './Dashboard';
 
 function App() {
+
+  useEffect(() => {
+    localStorage.clear(); // clear local storage when App is mounted
+  }, []);
+
   const MainContainer = ({children}) => {
     return (
       <div className="main-container">

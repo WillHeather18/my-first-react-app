@@ -75,6 +75,7 @@
     border: none; /* No border */
     border-radius: 10px; /* Slightly rounded corners */
     transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    margin-top: 20px;
   }
 
   .add-to-cart-button:hover {
