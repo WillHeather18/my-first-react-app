@@ -2,11 +2,11 @@
     margin-top: 10vh;
     padding-top: 2vh;
     font-family: 'Lora', serif;
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+    background-color: #dcd6d1;
 }
 
 .carousel-container {
@@ -23,10 +23,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
     cursor: pointer;
+    background-color: #f2f2f2;
 }
 
 .ourboxes-box:hover {
@@ -55,3 +56,58 @@
     font-size: 2rem;
     color: #000;
 }
+
+.modal-description{
+    width: 80%;
+    font-size: 0.8rem;
+}
+
+.add-to-cart-button {
+    background-color: #4eb862; /* Green background */
+    color: white; /* White text */
+    padding: 15px 32px; /* Top and bottom padding of 15px, left and right padding of 32px */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Align it with other inline elements */
+    font-size: 16px; /* Medium font size */
+    margin: 4px 2px; /* Margin around the button */
+    cursor: pointer; /* Change mouse cursor to indicate clickable item */
+    border: none; /* No border */
+    border-radius: 10px; /* Slightly rounded corners */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+  }
+
+  .add-to-cart-button:hover {
+    background-color: #4CAF50; /* Darken the green background a bit on hover */
+    box-shadow: 2px 2px #999; /* Add a subtle shadow on hover */
+  }
+
+  .add-to-cart-button:active {
+    box-shadow: 1px 1px #999; /* Reduce shadow on click to give "pressed" effect */
+    transform: translateY(2px); /* Move button down slightly on click */
+  }
+
+  .add-to-cart-button img{
+    margin-left: 5px;
+    height: 20px;
+    width: auto;
+  }
+
+  .modal-books{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+  }
+
+  .modal-book img{
+    width: 7vw;
+    height: auto;
+
+    border-radius: 2px;
+  }
+
+  .popular-books {
+    font-weight: bold;
+  }
