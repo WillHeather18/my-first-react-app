@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AppBar from '../Components/AppBar';
 import "../styles/Ourboxes.css"
 import scifiBox from '../assets/scifi-box.png';
@@ -36,7 +36,7 @@ function OurBoxes() {
   };
 
   const handleBoxClick = (index) => {
-    if (index != current) {
+    if (index !== current) {
       setSelectedBox(boxes[index]);
       setCurrent(index);
       setSlide(index * -120);
