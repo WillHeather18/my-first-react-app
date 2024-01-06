@@ -21,11 +21,16 @@
 
 }
 
-.menu-button {
+.dashboard-menu-button {
     margin: 10px;
     padding: 10px;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.menu-button.active {
+    background-color: #e0e0e0; /* Light gray background */
+    color: #000; /* Dark text for contrast */
 }
 
 .dashboard-books{
@@ -91,35 +96,58 @@
     padding : 1vw;
 }
 
-.catalogue-books-container{
+.catalogue-books-container {
     display: flex;
     flex-direction: column;
-    margin-top: 5vh;
-    padding:2vw;
-    border: 1px grey solid;
-    border-radius: 10px;
+    gap: 15px;
 }
-.catalogue-book-container{
-    height:10vh;
-    width: 100%;
-    border: 1px solid black;
+
+.catalogue-book-container {
     display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }
 
-.catalogue-book-cover{
-    aspect-ratio: 2/3;
-    margin-left: 2vw;
-    height: 8vh;
-    align-self: center;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    border-radius: 1px;
+.catalogue-book-cover {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
 }
 
-.catalogue-book-details{
-    margin-left: 2vw;
-    text-align: left;
-    justify-content: flex-start;
+.catalogue-book-details {
+    flex-grow: 1;
 }
+
+.catalogue-book-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.catalogue-book-info {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.catalogue-book-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.catalogue-book-button:hover {
+    background-color: #45a049;
+}
+
 
 .star-rating {
     display: inline-block;
@@ -134,3 +162,153 @@
 .star-rating .star:hover {
     color: #ffcc00; /* Color of stars on hover */
 }
+
+.search-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
+
+.sorting-options {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sort-select {
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page-button:hover {
+    background-color: #e0e0e0;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .dashboard-page {
+        flex-direction: column;
+        margin-top: 5vh;
+        padding-top: 2vh;
+    }
+
+    .dashboard-menu {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-books {
+        width: 100%;
+    }
+
+    .book-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .book-details {
+        padding-left: 0;
+        margin-right: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-cover {
+        width: 50vh; /* Adjust size as per the design */
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .book-title, .book-index {
+        font-size: 1.2rem;
+    }
+
+    .book-info, .book-description {
+        font-size: 0.9rem;
+    }
+
+    .shuffle {
+        width: 8vh;
+        height: 8vh;
+    }
+
+    .catalogue-books-container {
+        gap: 10px;
+    }
+
+    .catalogue-book-container {
+        flex-direction: column;
+        align-items: start;
+        padding: 15px;
+    }
+
+    .catalogue-book-cover {
+        width: auto; /* Adjust size as needed */
+        height: 150px; /* Adjust size as needed */
+        margin: 0 auto 10px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-input, .search-button {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .sorting-options, .pagination-controls {
+        justify-content: space-around;
+    }
+
+    .sort-select, .page-button {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .star-rating {
+        font-size: 1.5em;
+    }
+}
+

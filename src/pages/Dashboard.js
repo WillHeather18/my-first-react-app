@@ -47,7 +47,7 @@ function Dashboard() {
     useEffect(() => {
         if (selectedTab === 'Catalogue') {
             const startIndex = (page - 1) * booksPerPage;
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&orderBy=${sortOption}&startIndex=${startIndex}&maxResults=${booksPerPage}&printType=books&key=${APIKEY}`)
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&orderBy=${sortOption}&startIndex=${startIndex}&maxResults=${booksPerPage}&printType=books&country=UK&key=${APIKEY}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.items) {
@@ -65,10 +65,15 @@ function Dashboard() {
         <AppBar transparent={false} />
         <div className="dashboard-page">
             <div className="dashboard-menu">
-                <button className="menu-button" onClick={() => setSelectedTab('Upcoming Books')}>Upcoming Books</button>
-                <button className="menu-button" onClick={() => setSelectedTab('Book History')}>Book History</button>
-                <button className="menu-button" onClick={() => setSelectedTab('Catalogue')}>Catalogue</button>
-                <button className="menu-button" onClick={() => setSelectedTab('Your Book Reviews')}>Your Book Reviews</button>
+                {['Upcoming Books', 'Book History', 'Catalogue', 'Your Book Reviews'].map(tab => (
+                    <button
+                        key={tab}
+                        className={`dashboard-menu-button ${selectedTab === tab ? 'active' : ''}`}
+                        onClick={() => setSelectedTab(tab)}
+                    >
+                        {tab}
+                    </button>
+                ))}
             </div>
             <div className="dashboard-books">
                 {selectedTab === 'Upcoming Books' && books.map((book, index) => (
@@ -84,32 +89,31 @@ function Dashboard() {
                 ))}
                 {selectedTab === 'Catalogue' && (
                 <div className="catalogue">
-                    <form onSubmit={e => { e.preventDefault(); setSearchQuery(inputValue); }}>
-                        <input type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} placeholder="Search books..." />
-                        <input type="submit" value="Search" />
+                    <form onSubmit={e => { e.preventDefault(); setSearchQuery(inputValue); }} className="search-form">
+                        <input type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} placeholder="Search books..." className="search-input"/>
+                        <button type="submit" className="search-button" value="Search">Search</button>
                     </form>
-                    <select value={sortOption} onChange={e => setSortOption(e.target.value)}>
-                        <option value="relevance">Relevance</option>
-                        <option value="newest">Newest</option>
-                        <option value="rating">Rating</option>
-                    </select>
-                    <button onClick={() => setPage(prevPage => prevPage - 1)}>Previous</button>
-                    <button onClick={() => setPage(prevPage => prevPage + 1)}>Next</button>
+                    <div className="sorting-options">
+                        <select value={sortOption} onChange={e => setSortOption(e.target.value)} className="sort-select">
+                            <option value="relevance">Relevance</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </div>
                     <div className="catalogue-books-container">
-                    {catalogueBooks.map((book, index) => (
-                            <div className="catalogue-book-container">
-                                {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail ? (
-                                    <img src={book.volumeInfo.imageLinks.smallThumbnail} alt="Book Cover" className="catalogue-book-cover"/>
-                                ) : (
-                                    <div className="empty-container-catalogue"></div>
-                                )}
+                        {catalogueBooks.map((book, index) => (
+                            <div key={index} className="catalogue-book-container">
+                                <img src={book.volumeInfo.imageLinks?.smallThumbnail || 'default-placeholder-image.jpg'} alt="Book Cover" className="catalogue-book-cover"/>
                                 <div className="catalogue-book-details">
                                     <p className="catalogue-book-title">{book.volumeInfo.title}</p>
-                                    <p className="catalogue-book-info">{book.volumeInfo.authors} ({book.volumeInfo.publishedDate})</p>
+                                    <p className="catalogue-book-info">{book.volumeInfo.authors?.join(', ')} ({book.volumeInfo.publishedDate})</p>
                                 </div>
-                                <button className="catalogue-book-button" onClick={() => {setSelectedTab("Review Book"); setReviewBook(book);}}>I have read this book</button>
+                                <button className="catalogue-book-button" onClick={() => { setSelectedTab("Review Book"); setReviewBook(book); }}>I have read this book</button>
                             </div>
-                    ))}
+                        ))}
+                    </div>
+                    <div className="pagination-controls">
+                        <button onClick={() => setPage(prevPage => Math.max(prevPage - 1, 1))} className="page-button">Previous</button>
+                        <button onClick={() => setPage(prevPage => prevPage + 1)} className="page-button">Next</button>
                     </div>
                 </div>
             )}
